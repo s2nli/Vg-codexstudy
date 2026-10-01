@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b10">
+  <title>Batch — CODEX STUDYS</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/mj-icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/mj-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>(function(){try{var t=localStorage.getItem("codex-studys-theme");if(t&&t!=="system")document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+  <style>
+    :root {
+      --bg: #080a0f;
+      --bg-raised: #0d1017;
+      --panel: rgba(17, 21, 31, .82);
+      --panel-solid: #11151f;
+      --panel-soft: #151b27;
+      --line: rgba(255, 255, 255, .09);
+      --line-strong: rgba(255, 255, 255, .16);
+      --text: #f4f6fb;
+      --muted: #8d96a8;
+      --muted-bright: #b4bdcd;
+      --brand: #8b7cff;
+      --brand-bright: #a69cff;
+      --mint: #55ddbb;
+      --orange: #ffb36b;
+      --danger: #ff7585;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .32);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 11px;
+      --max: 1240px;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f4f5f9; --bg-raised: #ffffff; --panel: rgba(255,255,255,.86); --panel-solid: #ffffff; --panel-soft: #eef0f6;
+      --line: rgba(20,22,35,.1); --line-strong: rgba(20,22,35,.18); --text: #14161f; --muted: #5b6072; --muted-bright: #383c4a;
+      --brand: #6c5ce7; --brand-bright: #5b46e0; --mint: #12b899; --orange: #d9832a; --danger: #e0344f;
+      --shadow: 0 24px 70px rgba(30,30,60,.14);
+    }
+    html[data-theme="sandalwood"] {
+      --bg: #1c130c; --bg-raised: #241a10; --panel: rgba(43,31,20,.82); --panel-solid: #2b1f14; --panel-soft: #332417;
+      --line: rgba(255,225,190,.1); --line-strong: rgba(255,225,190,.18); --text: #f6ead9; --muted: #b89a7c; --muted-bright: #d9c1a3;
+      --brand: #cd8a4a; --brand-bright: #e6a75f; --mint: #b58a4f; --orange: #ff9d4d; --danger: #ff7c6b;
+    }
+    html[data-theme="forest-emerald"] {
+      --bg: #06140f; --bg-raised: #0a1c15; --panel: rgba(12,32,24,.82); --panel-solid: #0e2318; --panel-soft: #122a1d;
+      --line: rgba(180,255,220,.09); --line-strong: rgba(180,255,220,.17); --text: #eafff3; --muted: #83b39c; --muted-bright: #aed7c1;
+      --brand: #2fbf7a; --brand-bright: #3fdd91; --mint: #55ddbb; --orange: #ffb36b; --danger: #ff7585;
+    }
+    html[data-theme="ocean-deep"] {
+      --bg: #050e17; --bg-raised: #081521; --panel: rgba(11,26,40,.82); --panel-solid: #0c1e2e; --panel-soft: #102636;
+      --line: rgba(170,225,255,.09); --line-strong: rgba(170,225,255,.17); --text: #eaf6ff; --muted: #7ea3bd; --muted-bright: #a9cbe0;
+      --brand: #2196e0; --brand-bright: #4db4ff; --mint: #2fd3c7; --orange: #ffb36b; --danger: #ff7585;
+    }
+    html[data-theme="sakura-blossom"] {
+      --bg: #fff3f6; --bg-raised: #ffffff; --panel: rgba(255,255,255,.88); --panel-solid: #ffffff; --panel-soft: #ffe4ec;
+      --line: rgba(180,40,80,.1); --line-strong: rgba(180,40,80,.18); --text: #3c1420; --muted: #a26478; --muted-bright: #7a3a4c;
+      --brand: #ec6f96; --brand-bright: #e14f7e; --mint: #16b39a; --orange: #e08a3c; --danger: #d9314f;
+    }
+    html[data-theme="dracula-midnight"] {
+      --bg: #14121f; --bg-raised: #1b1830; --panel: rgba(38,33,64,.82); --panel-solid: #241f3d; --panel-soft: #2b2549;
+      --line: rgba(220,200,255,.09); --line-strong: rgba(220,200,255,.17); --text: #f3ecff; --muted: #a08fc9; --muted-bright: #c6b7ea;
+      --brand: #bd93f9; --brand-bright: #d6acff; --mint: #50fa7b; --orange: #ffb86c; --danger: #ff5555;
+    }
+    html[data-theme="lavender-mist"] {
+      --bg: #f5f2fc; --bg-raised: #ffffff; --panel: rgba(255,255,255,.88); --panel-solid: #ffffff; --panel-soft: #ece5fb;
+      --line: rgba(80,50,140,.1); --line-strong: rgba(80,50,140,.18); --text: #2c2140; --muted: #7a6a9c; --muted-bright: #4d3d70;
+      --brand: #9b7be0; --brand-bright: #855fdb; --mint: #16b39a; --orange: #d9832a; --danger: #d9314f;
+    }
+    html[data-theme="cyberpunk-neon"] {
+      --bg: #05020a; --bg-raised: #0a0512; --panel: rgba(20,8,32,.85); --panel-solid: #150a22; --panel-soft: #1c0e2c;
+      --line: rgba(255,60,220,.16); --line-strong: rgba(255,60,220,.3); --text: #f2e9ff; --muted: #b48ad9; --muted-bright: #e2b8ff;
+      --brand: #ff2ec4; --brand-bright: #ff5be0; --mint: #2af5ff; --orange: #ffb36b; --danger: #ff3860;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; min-width: 320px; background: var(--bg); color: var(--text); font: 15px/1.55 "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body.modal-open { overflow: hidden; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .shell { width: min(calc(100% - 32px), 980px); margin: 0 auto; }
+
+    .topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; height: 64px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(16px); }
+    .topbar .shell { display: flex; align-items: center; gap: 12px; }
+    .icon-btn { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--muted-bright); transition: .2s; }
+    .icon-btn:hover { color: var(--text); border-color: var(--brand-bright); }
+    .icon-btn svg { width: 19px; height: 19px; }
+    .top-title { flex: 1; min-width: 0; overflow: hidden; font: 600 16px/1.3 "Space Grotesk", sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+
+    .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 20px 0 14px; font-size: 13px; color: var(--muted); }
+    .crumbs button { max-width: 220px; overflow: hidden; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted-bright); font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .crumbs button:hover { border-color: var(--brand-bright); color: var(--text); }
+    .crumbs button[aria-current="page"] { border-color: transparent; background: linear-gradient(140deg, var(--brand-bright), var(--brand)); color: #fff; cursor: default; }
+    .crumbs .sep { opacity: .55; }
+
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .tab { flex: 1; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 13px; background: transparent; color: var(--muted); font-size: 13px; font-weight: 700; transition: .2s; }
+    .tab.active { border-color: transparent; background: linear-gradient(140deg, var(--brand-bright), var(--brand)); color: #fff; box-shadow: 0 10px 22px rgba(139,124,255,.25); }
+
+    .list { display: grid; gap: 10px; }
+    .item { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 13px; width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 15px; background: var(--panel); text-align: left; transition: transform .2s, border-color .2s; }
+    .item:hover { transform: translateY(-2px); border-color: rgba(166,156,255,.45); }
+    .item:focus-visible, .btn:focus-visible, .tab:focus-visible, .icon-btn:focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 2px; }
+    .item-ico { position: relative; width: 56px; height: 56px; overflow: hidden; display: grid; place-items: center; border-radius: 13px; background: var(--panel-soft); color: var(--brand-bright); }
+    .item-ico img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .item-ico svg { width: 26px; height: 26px; }
+    .item-ico.video { color: var(--mint); } .item-ico.pdf { color: var(--orange); }
+    .item-main { min-width: 0; }
+    .item-title { display: -webkit-box; overflow: hidden; font-weight: 600; line-height: 1.35; -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: break-word; }
+    .item-sub { margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .item-actions { display: flex; align-items: center; gap: 8px; }
+    .pill { padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--muted-bright); font-size: 11px; font-weight: 700; }
+    .pill:hover { border-color: var(--orange); color: var(--orange); }
+    .chev { width: 18px; height: 18px; color: var(--muted); }
+    .badge-live { padding: 3px 8px; border-radius: 999px; background: rgba(255,117,133,.14); color: var(--danger); font-size: 10px; font-weight: 700; }
+    .group-title { margin: 18px 2px 8px; color: var(--muted-bright); font: 600 13px "Space Grotesk", sans-serif; }
+    .state { padding: 42px 20px; border: 1px dashed var(--line-strong); border-radius: 16px; color: var(--muted); text-align: center; }
+    .state .btn { margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 18px; border: 0; border-radius: 12px; background: linear-gradient(135deg, var(--brand-bright), var(--brand)); color: #fff; font-size: 13px; font-weight: 700; }
+    .btn-quiet { border: 1px solid var(--line-strong); background: transparent; color: var(--text); }
+    .skel { height: 78px; border-radius: 15px; background: linear-gradient(110deg, var(--panel) 30%, var(--panel-soft) 45%, var(--panel) 60%); background-size: 200% 100%; animation: sk 1.4s linear infinite; }
+    @keyframes sk { to { background-position: -200% 0; } }
+    .toast { position: fixed; z-index: 120; left: 50%; bottom: 24px; max-width: calc(100% - 32px); transform: translateX(-50%); padding: 11px 16px; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--panel-solid); color: var(--text); box-shadow: var(--shadow); font-size: 13px; }
+
+    /* ---- player ---- */
+    .overlay { position: fixed; z-index: 90; inset: 0; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.96); }
+    .overlay.visible { display: flex; }
+    .player-wrap { width: min(100%, 1000px); }
+    .overlay .btn-quiet { border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.08); color: #fff; }
+    .overlay .btn-quiet:hover { background: rgba(255,255,255,.18); }
+    .player-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .player-top h2 { flex: 1; margin: 0; overflow: hidden; color: #fff; font: 600 15px "Space Grotesk", sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+    .player-top .btn { padding: 8px 14px; }
+    .player { position: relative; overflow: hidden; border-radius: 14px; background: #000; aspect-ratio: 16/9; user-select: none; -webkit-user-select: none; }
+    .player:fullscreen { border-radius: 0; aspect-ratio: auto; }
+    .player video { width: 100%; height: 100%; display: block; background: #000; object-fit: contain; }
+    .p-spinner { position: absolute; inset: 0; display: none; place-items: center; pointer-events: none; }
+    .p-spinner.on { display: grid; }
+    .p-spinner i { width: 46px; height: 46px; border: 4px solid rgba(255,255,255,.25); border-top-color: #fff; border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .p-msg { position: absolute; inset: 0; display: none; place-items: center; padding: 24px; color: #fff; text-align: center; background: rgba(0,0,0,.72); }
+    .p-msg.on { display: grid; }
+    .p-controls { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; background: linear-gradient(transparent, rgba(0,0,0,.82)); color: #fff; transition: opacity .25s; }
+    .player.idle .p-controls { opacity: 0; pointer-events: none; }
+    .player.idle { cursor: none; }
+    .p-seek { position: relative; height: 18px; display: flex; align-items: center; cursor: pointer; touch-action: none; }
+    .p-track { position: relative; width: 100%; height: 4px; border-radius: 4px; background: rgba(255,255,255,.28); }
+    .p-buf, .p-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+    .p-buf { background: rgba(255,255,255,.35); } .p-fill { background: var(--brand-bright); }
+    .p-knob { position: absolute; top: 50%; width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; border-radius: 50%; background: #fff; }
+    .p-row { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
+    .p-btn { position: relative; width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: #fff; font-size: 12px; font-weight: 700; }
+    .p-btn:hover { background: rgba(255,255,255,.16); }
+    .p-btn svg { width: 22px; height: 22px; }
+    .p-btn.txt { width: auto; padding: 0 9px; }
+    .p-time { padding: 0 8px; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .p-spacer { flex: 1; }
+    .p-vol { display: flex; align-items: center; }
+    .p-vol input { width: 74px; accent-color: var(--brand-bright); }
+    .p-menu { position: absolute; right: 8px; bottom: 62px; min-width: 130px; display: none; padding: 6px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(14,16,24,.96); }
+    .p-menu.on { display: block; }
+    .p-menu button { display: flex; justify-content: space-between; gap: 14px; width: 100%; padding: 8px 12px; border: 0; border-radius: 8px; background: transparent; color: #fff; font-size: 13px; text-align: left; }
+    .p-menu button:hover { background: rgba(255,255,255,.12); }
+    .p-menu button.sel { color: var(--brand-bright); font-weight: 700; }
+    .pdf-frame { width: min(100%, 1000px); height: min(86vh, 900px); border: 0; border-radius: 12px; background: #fff; }
+
+    @media (max-width: 640px) {
+      .p-vol input { display: none; }
+      .p-controls { padding: 22px 8px 6px; }
+      .p-btn { width: 30px; height: 34px; }
+      .p-btn svg { width: 20px; height: 20px; }
+      .p-btn.txt { padding: 0 6px; font-size: 11px; }
+      .p-time { padding: 0 4px; font-size: 11px; }
+      .p-menu { right: 4px; bottom: 54px; }
+      .item { grid-template-columns: 48px 1fr auto; gap: 10px; }
+      .item-ico { width: 48px; height: 48px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="icon-btn" href="index.html" aria-label="Back to all batches" id="backHome">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+      <div class="top-title" id="topTitle">Batch</div>
+      <button class="icon-btn" id="modeBtn" type="button" aria-label="Switch dark / light mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" id="tabContent" aria-selected="true" type="button">Content</button>
+      <button class="tab" role="tab" id="tabLive" aria-selected="false" type="button">Live &amp; Upcoming</button>
+    </div>
+    <section id="view" class="list" aria-live="polite"></section>
+  </main>
+
+  <div class="overlay" id="playerModal" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="player-wrap">
+      <div class="player-top">
+        <h2 id="playerTitle">Video</h2>
+        <button class="btn btn-quiet" id="playerPdfBtn" type="button" style="display:none">View PDF</button>
+        <button class="btn btn-quiet" id="playerClose" type="button">Close</button>
+      </div>
+      <div class="player" id="player">
+        <video id="video" playsinline preload="metadata"></video>
+        <div class="p-spinner" id="pSpinner"><i></i></div>
+        <div class="p-msg" id="pMsg"></div>
+        <div class="p-controls" id="pControls">
+          <div class="p-seek" id="pSeek"><div class="p-track"><div class="p-buf" id="pBuf"></div><div class="p-fill" id="pFill"></div><div class="p-knob" id="pKnob"></div></div></div>
+          <div class="p-row">
+            <button class="p-btn" id="pPlay" type="button" aria-label="Play / Pause"></button>
+            <button class="p-btn" id="pBack" type="button" aria-label="Rewind 10 seconds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4"/><text x="12" y="15.5" font-size="7.5" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">10</text></svg></button>
+            <button class="p-btn" id="pFwd" type="button" aria-label="Skip 10 seconds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-2.5-5.8M20 4v4h-4"/><text x="12" y="15.5" font-size="7.5" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">10</text></svg></button>
+            <div class="p-vol">
+              <button class="p-btn" id="pMute" type="button" aria-label="Mute / Unmute"></button>
+              <input id="pVol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+            </div>
+            <span class="p-time" id="pTime">0:00 / 0:00</span>
+            <span class="p-spacer"></span>
+            <button class="p-btn txt" id="pSpeed" type="button" aria-label="Playback speed">1x</button>
+            <button class="p-btn txt" id="pQuality" type="button" aria-label="Quality">Auto</button>
+            <button class="p-btn" id="pPip" type="button" aria-label="Picture in Picture"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="12" y="12" width="7" height="5" rx="1" fill="currentColor"/></svg></button>
+            <button class="p-btn" id="pFull" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          </div>
+          <div class="p-menu" id="pMenu"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="pdfModal" role="dialog" aria-modal="true" aria-label="PDF viewer">
+    <div class="player-wrap">
+      <div class="player-top">
+        <h2 id="pdfTitle">PDF</h2>
+        <a class="btn btn-quiet" id="pdfNewTab" target="_blank" rel="noopener">Open in new tab</a>
+        <button class="btn btn-quiet" id="pdfClose" type="button">Close</button>
+      </div>
+      <iframe class="pdf-frame" id="pdfFrame" title="PDF viewer"></iframe>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+  <script src="vidyagram.js"></script>
+  <script src="batch.js"></script>
+</body>
+</html>

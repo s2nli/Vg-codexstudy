@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/batch", "destination": "/batch.html" }]
+}
